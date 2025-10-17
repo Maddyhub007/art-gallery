@@ -25,7 +25,7 @@ const ArtworksTable: React.FC = () => {
     setLoading(true);
     try {
       const res = await fetch(
-        `https://api.artic.edu/api/v1/artworks?page=${pageNumber + 1}`
+        `https://api.artic.edu/api/v1/artworks?page=${pageNumber}&limit=5`
       );
       const data = await res.json();
       setArtworks(data.data);
