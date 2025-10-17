@@ -1,48 +1,45 @@
-Artworks Table React App
+Artworks Table Assignment
 
-This project is a React + TypeScript application that displays artworks from the Art Institute of Chicago API
-. It demonstrates server-side pagination, custom row selection, and dynamic row selection via user input using PrimeReact components.
+This React + TypeScript project displays artworks from the Art Institute of Chicago API. It includes server-side pagination, custom row selection, and a custom input to select rows as per assignment requirements.
 
 Features
 
-Fetches artworks page by page using server-side pagination.
+Fetches 5 artworks per page from API.
 
-Displays 5 artworks per page.
+Server-side pagination: every page change fetches data from the API.
 
-Row selection using checkboxes, with persistent selection across pages.
+Select/deselect rows with checkboxes.
 
-Select All / Deselect All on the current page.
+Select all rows on current page.
 
-Custom selection panel displaying selected rows.
+Custom selection panel showing selected rows.
 
 Remove rows from selection panel.
 
-Custom input to select the first N rows on the current page.
+Custom input: user types a number, clicks submit, and the first N rows on the page get selected.
 
-Submit button to process selected rows.
+Submit button to process all selected rows.
 
-PrimeReact ProgressSpinner while loading API data.
+Shows loading spinner when fetching data.
 
-Clean and professional UI without overlays or flickers.
+Selection persists across pages.
 
 Tech Stack
 
-React 18 (with Vite)
-
-TypeScript
+React + TypeScript
 
 PrimeReact (Checkbox, Paginator, ProgressSpinner)
 
-CSS Modules / Custom CSS
+Vite (for project setup)
 
 Art Institute of Chicago API
 
-Installation
+How to Run
 
-Clone the repository:
+Clone the project:
 
-git clone <your-repo-url>
-cd <repo-folder>
+git clone <repo-url>
+cd <project-folder>
 
 
 Install dependencies:
@@ -50,46 +47,29 @@ Install dependencies:
 npm install
 
 
-Run the app:
+Start the app:
 
 npm run dev
 
 
-The app should now be running at http://localhost:5173 (Vite default).
+Open http://localhost:5173 in your browser.
 
-Usage
+How to Use
 
-Navigate pages using the paginator at the bottom.
+Navigate pages using the paginator.
 
-Select individual rows using checkboxes.
+Select rows with checkboxes or select all on the page.
 
-Select all rows on current page with the header checkbox.
+Use the input field to type a number and click Submit to select first N rows.
 
-Custom selection input:
+Remove rows from the panel if needed.
 
-Enter a number in the input field.
-
-Click Submit to select the first N rows on the current page.
-
-Remove rows from the custom selection panel if needed.
-
-Click Submit All Selected to process all selected rows (currently shows an alert, replace with API call as needed).
-
-Project Structure
-src/
-│
-├─ components/
-│   ├─ ArtworksTable.tsx   # Main component with table and selection panel
-│   └─ ArtworksTable.css   # Custom CSS for table and selection panel
-│
-├─ App.tsx                 # App entry component
-├─ main.tsx                # Vite entry
-└─ ...
+Click Submit All Selected to process the selected artworks.
 
 Notes
 
-This project uses server-side pagination, meaning every page change triggers an API call.
+Every page fetches fresh data from the API to avoid memory issues.
 
-Row selection persists across pages without storing all page data locally, avoiding memory issues.
+Selection panel persists selections even when switching pages.
 
-PrimeReact components are used for UI elements, ensuring responsiveness and a professional look.
+No gray overlay appears when selecting rows for a professional UI.
