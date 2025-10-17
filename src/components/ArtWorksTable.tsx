@@ -6,11 +6,11 @@ import { ProgressSpinner } from "primereact/progressspinner";
 import "primereact/resources/themes/lara-light-blue/theme.css";
 import "primereact/resources/primereact.min.css";
 import "primeicons/primeicons.css";
-import "../ArtworksTable.css";
+import "../ArtworksTable.css"
     import type { Artwork } from "../type";
 
 
-const rowsPerPage = 5; // show 5 rows per page
+const rowsPerPage = 5; 
 
 const ArtworksTable: React.FC = () => {
   const [artworks, setArtworks] = useState<Artwork[]>([]);
