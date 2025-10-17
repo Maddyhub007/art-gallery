@@ -1,0 +1,82 @@
+.artworks-container {
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.table-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.table-wrapper {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #dcdcdc;
+  background-color: white;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.custom-table th,
+.custom-table td {
+  border-bottom: 1px solid #eee;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+}
+
+.custom-table tr:hover {
+  background-color: #f8f8f8;
+}
+
+.custom-table tr.selected {
+  background-color: #d7ebff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.loading-cell {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #ddd;
+  border-top-color: #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Removed gray overlay — table stays visible while loading */
+.table-wrapper.loading {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.custom-paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.selection-info {
+  text-align: right;
+  margin-top: 10px;
+  font-weight: 500;
+}
