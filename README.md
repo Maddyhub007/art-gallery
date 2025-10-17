@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+Artworks Table Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This React + TypeScript project displays artworks from the Art Institute of Chicago API. It includes server-side pagination, custom row selection, and a custom input to select rows as per assignment requirements.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fetches 5 artworks per page from API.
 
-## React Compiler
+Server-side pagination: every page change fetches data from the API.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Select/deselect rows with checkboxes.
 
-## Expanding the ESLint configuration
+Select all rows on current page.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Custom selection panel showing selected rows.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Remove rows from selection panel.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Custom input: user types a number, clicks submit, and the first N rows on the page get selected.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Submit button to process all selected rows.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Shows loading spinner when fetching data.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Selection persists across pages.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Tech Stack
+
+React + TypeScript
+
+PrimeReact (Checkbox, Paginator, ProgressSpinner)
+
+Vite (for project setup)
+
+Art Institute of Chicago API
+
+How to Run
+
+Clone the project:
+
+git clone <repo-url>
+cd <project-folder>
+
+
+Install dependencies:
+
+npm install
+
+
+Start the app:
+
+npm run dev
+
+
+Open http://localhost:5173 in your browser.
+
+How to Use
+
+Navigate pages using the paginator.
+
+Select rows with checkboxes or select all on the page.
+
+Use the input field to type a number and click Submit to select first N rows.
+
+Remove rows from the panel if needed.
+
+Click Submit All Selected to process the selected artworks.
+
+Notes
+
+Every page fetches fresh data from the API to avoid memory issues.
+
+Selection panel persists selections even when switching pages.
+
+No gray overlay appears when selecting rows for a professional UI.
