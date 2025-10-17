@@ -1,73 +1,95 @@
-# React + TypeScript + Vite
+Artworks Table React App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a React + TypeScript application that displays artworks from the Art Institute of Chicago API
+. It demonstrates server-side pagination, custom row selection, and dynamic row selection via user input using PrimeReact components.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fetches artworks page by page using server-side pagination.
 
-## React Compiler
+Displays 5 artworks per page.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Row selection using checkboxes, with persistent selection across pages.
 
-## Expanding the ESLint configuration
+Select All / Deselect All on the current page.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Custom selection panel displaying selected rows.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Remove rows from selection panel.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Custom input to select the first N rows on the current page.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Submit button to process selected rows.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+PrimeReact ProgressSpinner while loading API data.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Clean and professional UI without overlays or flickers.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Tech Stack
+
+React 18 (with Vite)
+
+TypeScript
+
+PrimeReact (Checkbox, Paginator, ProgressSpinner)
+
+CSS Modules / Custom CSS
+
+Art Institute of Chicago API
+
+Installation
+
+Clone the repository:
+
+git clone <your-repo-url>
+cd <repo-folder>
+
+
+Install dependencies:
+
+npm install
+
+
+Run the app:
+
+npm run dev
+
+
+The app should now be running at http://localhost:5173 (Vite default).
+
+Usage
+
+Navigate pages using the paginator at the bottom.
+
+Select individual rows using checkboxes.
+
+Select all rows on current page with the header checkbox.
+
+Custom selection input:
+
+Enter a number in the input field.
+
+Click Submit to select the first N rows on the current page.
+
+Remove rows from the custom selection panel if needed.
+
+Click Submit All Selected to process all selected rows (currently shows an alert, replace with API call as needed).
+
+Project Structure
+src/
+│
+├─ components/
+│   ├─ ArtworksTable.tsx   # Main component with table and selection panel
+│   └─ ArtworksTable.css   # Custom CSS for table and selection panel
+│
+├─ App.tsx                 # App entry component
+├─ main.tsx                # Vite entry
+└─ ...
+
+Notes
+
+This project uses server-side pagination, meaning every page change triggers an API call.
+
+Row selection persists across pages without storing all page data locally, avoiding memory issues.
+
+PrimeReact components are used for UI elements, ensuring responsiveness and a professional look.
